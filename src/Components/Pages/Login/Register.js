@@ -46,6 +46,14 @@ const Register = () => {
               <div className="w-75 border border-1 p-5">
                   <h1 className="d-inline-block">Sign up:<hr /></h1>
           <Form className=" mx-auto" onSubmit={handleFormSubmit}>
+            <Form.Group className="mb-3">
+              <Form.Label>Your name</Form.Label>
+              <Form.Control
+                type="text"
+                name="name"
+                placeholder="Enter name"
+              />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control

@@ -8,6 +8,10 @@ import Login from "./Components/Pages/Login/Login";
 import Register from "./Components/Pages/Login/Register";
 import Contact from "./Components/Pages/Contact/Contact";
 import NotFound from "./Components/Pages/NotFound/NotFound";
+import Blogs from "./Components/Pages/Blogs/Blogs";
+import Manage from "./Components/Pages/Manage/Manage";
+import Add from "./Components/Pages/Add/Add";
+import Myitems from "./Components/Pages/Myitems/Myitems";
 
 function App() {
   return (
@@ -15,7 +19,10 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/blogs"></Route>
+        <Route path="/manage" element={<Manage></Manage>}></Route>
+        <Route path="/add" element={<Add></Add>}></Route>
+        <Route path="/myitems" element={<Myitems></Myitems>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/contact" element={<Contact></Contact>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
