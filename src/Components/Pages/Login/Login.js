@@ -6,11 +6,16 @@ import {
   useSignInWithFacebook,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import logo from "../../../images/login.svg";
 
 const Login = () => {
+  let navigate = useNavigate();
+  let location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -29,6 +34,7 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     signInWithGoogle();
+      navigate(from, { replace: true });
   };
   const handleFbLogin = () => {
     signInWithFacebook();
@@ -38,7 +44,7 @@ const Login = () => {
   return (
     <div style={{ minHeight: "100vh" }} className="d-flex">
       <div className="w-50 border border-1 d-flex align-items-center justify-content-center bg-warning">
-        <img className="w-50" src={logo} />
+        <img className="w-50" src={logo} alt=""/>
       </div>
       <div className="w-50 d-flex align-items-center justify-content-center ">
         <div className="w-75 border border-1 p-5">

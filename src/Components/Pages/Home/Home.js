@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import banner from "../../../images/banner.png";
 import Cards from "../../Shared/Card/Cards";
 
@@ -11,7 +12,6 @@ const Home = () => {
       .then(res => res.json())
       .then(data => setProducts(data))
   }, [])
-  console.log(products)
   return (
     <div>
       <img width={"100%"} height={"500em"} src={banner} alt="" />
@@ -19,9 +19,13 @@ const Home = () => {
         <h1 className="text-center">Inventory</h1>
         <Row xs={1} md={2} className="container mt-5 mx-auto g-4">
           {
-            products.map(product => <Cards key={product.price}></Cards>).slice(0,6)
+            products.map(product => <Cards key={product.price} details={product}></Cards>).slice(0,6)
           }
-      </Row>
+        </Row>
+        <Link to="/manage">
+        <button className="btn-dark rounded-pill py-1">Manage Inventory</button>
+        </Link>
+        
       </section>
       
     </div>
