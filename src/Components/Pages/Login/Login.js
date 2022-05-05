@@ -11,10 +11,11 @@ import auth from "../../../firebase.init";
 import logo from "../../../images/login.svg";
 
 const Login = () => {
-  let navigate = useNavigate();
-  let location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  let from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/";
+ 
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,13 +35,13 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     signInWithGoogle();
-      navigate(from, { replace: true });
   };
   const handleFbLogin = () => {
     signInWithFacebook();
   };
-
-  // console.log(email,password,error)
+  if (user || fbUser|| gUser) {
+    navigate(from, { replace: true });
+  }
   return (
     <div style={{ minHeight: "100vh" }} className="d-flex">
       <div className="w-50 border border-1 d-flex align-items-center justify-content-center bg-warning">

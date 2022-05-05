@@ -2,27 +2,23 @@ import { Icon } from "@iconify/react";
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
-    useCreateUserWithEmailAndPassword,
+  useCreateUserWithEmailAndPassword,
   useSignInWithFacebook,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import auth from "../../../firebase.init";
-import logo from '../../../images/signup.svg'
+import logo from "../../../images/signup.svg";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  console.log(email, password);
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [signInWithFacebook, fbUser, fbLoading, fbError] =
-        useSignInWithFacebook(auth);
-        const [
-            createUserWithEmailAndPassword,
-            user,
-            loading,
-            error,
-    ] = useCreateUserWithEmailAndPassword(auth);
-    
+    useSignInWithFacebook(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
 
   const handleGoogleLogin = () => {
     signInWithGoogle();
@@ -32,27 +28,24 @@ const Register = () => {
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setEmail(e.target.email.value);
-      setPassword(e.target.password.value);
-      createUserWithEmailAndPassword(email, password);
-      e.target.reset();
-    };
+    createUserWithEmailAndPassword(email, password);
+    e.target.reset();
+  };
   return (
     <div style={{ minHeight: "100vh" }} className="d-flex">
       <div className="w-50 border border-1 d-flex align-items-center justify-content-center bg-warning">
         <img className="w-50" src={logo} alt="" />
       </div>
       <div className="w-50 d-flex align-items-center justify-content-center ">
-              <div className="w-75 border border-1 p-5">
-                  <h1 className="d-inline-block">Sign up:<hr /></h1>
+        <div className="w-75 border border-1 p-5">
+          <h1 className="d-inline-block">
+            Sign up:
+            <hr />
+          </h1>
           <Form className=" mx-auto" onSubmit={handleFormSubmit}>
             <Form.Group className="mb-3">
               <Form.Label>Your name</Form.Label>
-              <Form.Control
-                type="text"
-                name="name"
-                placeholder="Enter name"
-              />
+              <Form.Control type="text" name="name" placeholder="Enter name" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
@@ -60,6 +53,7 @@ const Register = () => {
                 type="email"
                 name="email"
                 placeholder="Enter email"
+                onBlur={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
 
@@ -69,6 +63,7 @@ const Register = () => {
                 type="password"
                 name="password"
                 placeholder="Password"
+                onBlur={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
             <Button className="w-100" variant="primary" type="submit">
@@ -76,9 +71,9 @@ const Register = () => {
             </Button>
           </Form>
           <p className="text-center">
-            Already have an account?  
+            Already have an account?
             <Link className="text-decoration-none ms-2" to="/login">
-                Log in
+              Log in
             </Link>
           </p>
           <div className="text-center ">

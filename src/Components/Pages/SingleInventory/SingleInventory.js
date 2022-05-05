@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
+import auth from "../../../firebase.init";
 import "./SingleInventory.css";
 const SingleInventory = () => {
+  const [user, loading, error] = useAuthState(auth);
   const { id } = useParams();
   const [singlePro, setSinglePro] = useState();
   useEffect(() => {

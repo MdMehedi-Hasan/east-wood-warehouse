@@ -15,7 +15,7 @@ const Header = () => {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        
       });
   };
 
