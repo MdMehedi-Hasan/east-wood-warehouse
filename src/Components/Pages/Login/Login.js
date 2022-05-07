@@ -28,8 +28,6 @@ const Login = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setEmail(e.target.email.value);
-    setPassword(e.target.password.value);
     signInWithEmailAndPassword(email, password);
   };
 
@@ -59,6 +57,7 @@ const Login = () => {
                 type="email"
                 name="email"
                 placeholder="Enter email"
+                onBlur={(e)=>setEmail(e.target.value)}
               />
             </Form.Group>
 
@@ -68,6 +67,7 @@ const Login = () => {
                 type="password"
                 name="password"
                 placeholder="Password"
+                onBlur={(e)=>setPassword(e.target.value)}
               />
             </Form.Group>
             <p className="text-end">Forget password</p>

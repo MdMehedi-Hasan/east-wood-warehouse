@@ -14,8 +14,21 @@ const Manage = () => {
   const addNewItem = () => {
     navigate('/add');
   }
+// console.log(productDetails)
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/products/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const restProducts = productDetails.filter(products => products._id !== id);
+        setProductDetails(restProducts);
+        console.log("Success:", data);
+      })
+  }
+  // console.log(productDetails)
   return (
-      <div>
+      <div style={{minHeight:'100vh'}}>
           <Table striped bordered hover responsive="md">
         <thead>
           <tr>
@@ -26,9 +39,9 @@ const Manage = () => {
             <th className="text-center">Delete Stock</th>
           </tr>
         </thead>
-        <tbody  style={{ backgroundImage: 'url("https://contentgrid.thdstatic.com/hdus/en_US/DTCCOMNEW/fetch/NexGen/ContentPage/HDH20-Furniture-Sofas-VizNav.jpg")', backgroundRepeat: 'no-repeat'}}>
+        <tbody>
                   {
-                      productDetails.map(products => <TableRow key={products._id} details={products}></TableRow>)
+                      productDetails.map(products =><TableRow key={products._id} details={products} func={()=>handleDelete(products._id)}></TableRow>)
                   }       
         </tbody>
       </Table>

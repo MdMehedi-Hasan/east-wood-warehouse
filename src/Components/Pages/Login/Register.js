@@ -6,11 +6,12 @@ import {
   useSignInWithFacebook,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import { Link} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import auth from "../../../firebase.init";
 import logo from "../../../images/signup.svg";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   console.log(email, password);
@@ -31,6 +32,10 @@ const Register = () => {
     createUserWithEmailAndPassword(email, password);
     e.target.reset();
   };
+  if (user||gUser||fbUser) {
+    navigate('/')
+    // optional (you can create a modal or a component to welcome the new user then navigate to homepage)
+  }
   return (
     <div style={{ minHeight: "100vh" }} className="d-flex">
       <div className="w-50 border border-1 d-flex align-items-center justify-content-center bg-warning">

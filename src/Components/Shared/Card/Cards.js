@@ -7,7 +7,7 @@ import demo from "../../../images/Background (2).png";
 
 const Cards = ({ details }) => {
   const [user, loading, error] = useAuthState(auth);
-  const {_id,image,name,description,price} = details
+  const {_id,image,name,description,price,quantity} = details
   const navigate = useNavigate()
   const productDetails = (id) => {
     navigate(`/products/${id}`);
@@ -15,12 +15,11 @@ const Cards = ({ details }) => {
   return (
     <Col>
       <Card>
-        <Card.Img variant="top" className="w-50" src={demo} />
+        <Card.Img variant="top" className="w-50" src={image} />
         <Card.Body>
-          <Card.Title>Card title</Card.Title>
+          <Card.Title>{name}</Card.Title>
           <Card.Text>
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
+            {description} <br /> {price} <br /> {quantity}
           </Card.Text>
           <Card.Footer className="bg-white border-0">
            <button onClick={()=>productDetails(_id)}>Manage</button>
