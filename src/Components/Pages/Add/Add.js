@@ -93,12 +93,12 @@ const Add = () => {
           <input
             type="submit"
             value="Add product"
-            className="col-6 w-25 mt-4 btn-warning border-1"
+            className="col-6 w-25 mt-4 btn-green text-white border-0 py-2"
           />
           <br />
           <button
             onClick={handleCancel}
-            className="col-6 w-25 mt-4 btn-warning border-1"
+            className="col-6 w-25 mt-4 btn-green text-white border-0 py-2"
           >
             Cancel
           </button>

@@ -1,7 +1,7 @@
 import React from "react";
 
 const TableRow = (props) => {
-  const { image, name, price, _id } = props.details;
+  const { image, name, price, _id,quantity } = props.details;
   return (
       <tr>
         <td className="text-center">
@@ -9,7 +9,7 @@ const TableRow = (props) => {
         </td>
         <td>{name}</td>
         <td>${price}</td>
-        <td>Table cell</td>
+      <td>{quantity<0? 'Stock out':quantity}</td>
         <td className="text-center">
           <button
             className=" border border-0 bg-transparent"

@@ -6,8 +6,8 @@ import "./SingleInventory.css";
 const SingleInventory = () => {
   const [user, loading, error] = useAuthState(auth);
   const { id } = useParams();
-  // const [restock, setRestock] = useState();
-  // console.log(restock)
+  const [restock, setRestock] = useState();
+  console.log(restock)
   const [singlePro, setSinglePro] = useState();
   const url = `https://afternoon-shore-78894.herokuapp.com/products/${id}`;
   useEffect(() => {
@@ -27,6 +27,8 @@ const SingleInventory = () => {
       .then((data) => {});
   };
   const handleRestock = () => {
+    
+    // console.log(newqnty)
     fetch(`http://localhost:5000/products/${id}`, {
       method: "PUT",
       headers: {
@@ -35,7 +37,8 @@ const SingleInventory = () => {
       body: JSON.stringify(singlePro),
     })
       .then((response) => response.json())
-      .then((data) => {});
+      .then((data) => {const quantity = parseInt(singlePro.quantity);
+        const newqnty = parseInt(quantity + restock);});
   };
   return (
     <div
@@ -47,7 +50,7 @@ const SingleInventory = () => {
           <div className="col-md-4">
             <img
               src={singlePro?.image}
-              className="img-fluid rounded-start"
+              className="img-fluid rounded-start h-100"
               alt="..."
             />
           </div>
@@ -100,17 +103,17 @@ const SingleInventory = () => {
                       ></button>
                     </div>
                     <div className="modal-body">
-                      <input className="w-100" type="number"/>
+                      <input onChange={(e)=>setRestock(e.target.value)} className="w-100" type="number"/>
                     </div>
                     <div className="modal-footer">
                       <button
                         type="button"
-                        className="btn btn-secondary"
+                        className="btn btn-danger"
                         data-bs-dismiss="modal"
                       >
                         Close
                       </button>
-                      <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleRestock}>
+                      <button type="button" className="btn btn-green" data-bs-dismiss="modal" onClick={handleRestock}>
                        Restock
                       </button>
                     </div>

@@ -24,40 +24,41 @@ const Header = () => {
     <div className="header-nav">
       <Navbar collapseOnSelect expand="lg" >
         <Container>
-          <Navbar.Brand as={Link} to="/" className="text-dark">East<span className="text-color-green">wood</span></Navbar.Brand>
+          <Navbar.Brand as={Link} to="/" className="text-dark fw-bold">East<span className="text-color-green">wood</span></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link as={Link} className="me-4 text-dark hover" to="/">
+              <Nav.Link as={Link} className="me-4 text-dark hover fw-bold" to="/">
                 Home
               </Nav.Link>
               {user && (
-                <Nav.Link as={Link} className="me-4 text-dark hover" to="/manage">
+                <Nav.Link as={Link} className="me-4 text-dark hover fw-bold" to="/manage">
                   Manage inventory
                 </Nav.Link>
               )}
               {user && (
-                <Nav.Link as={Link} className="me-4 text-dark hover" to="/add">
+                <Nav.Link as={Link} className="me-4 text-dark hover fw-bold" to="/add">
                   Add inventory
                 </Nav.Link>
               )}
               {user && (
-                <Nav.Link as={Link} className="me-4 text-dark hover" to="/myitems">
+                <Nav.Link as={Link} className="me-4 text-dark hover fw-bold" to="/myitems">
                   My items
                 </Nav.Link>
               )}
-              <Nav.Link as={Link} className="me-4 text-dark hover" to="/blogs">
+              <Nav.Link as={Link} className="me-4 text-dark hover fw-bold" to="/blogs">
                 Blogs{" "}
               </Nav.Link>
-              <Nav.Link as={Link} className="me-4 text-dark hover" to="contact">
+              {/* <Nav.Link as={Link} className="me-4 text-dark hover" to="contact">
                 Contact
-              </Nav.Link>
+              </Nav.Link> */}
+              {/* for future use */}
               {user ? (
-                <Nav.Link onClick={handlesignOut} className="me-4 text-dark hover">
+                <Nav.Link onClick={handlesignOut} className="me-4 text-dark hover fw-bold">
                   Sign out
                 </Nav.Link>
               ) : (
-                <Nav.Link as={Link} className="me-4 text-dark hover" to="login">
+                <Nav.Link as={Link} className="me-4 text-dark hover fw-bold" to="login">
                   Log in
                 </Nav.Link>
               )}

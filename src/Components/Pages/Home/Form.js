@@ -32,7 +32,7 @@ const Form = () => {
             Check me out
           </label>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn bg-green text-white py-2 px-5">
           Submit
         </button>
       </form>

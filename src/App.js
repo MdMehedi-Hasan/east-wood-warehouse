@@ -32,7 +32,8 @@ function App() {
         <Route path="/add" element={<Add></Add>}></Route>
         <Route path="/myitems" element={<Myitems></Myitems>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
-        <Route path="/contact" element={<Contact></Contact>}></Route>
+        {/* <Route path="/contact" element={<Contact></Contact>}></Route> */}
+        {/* for future use */}
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>

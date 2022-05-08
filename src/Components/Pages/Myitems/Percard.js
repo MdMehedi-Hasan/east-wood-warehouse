@@ -24,7 +24,7 @@ const Percard = (props) => {
             <Card.Text>
             <span className="fw-bold">Supplier:</span>  {supplier}
             </Card.Text>
-            <Button onClick={()=>props.func(_id)}>Delete</Button>
+            <Button className="btn-green py-2 px-5" onClick={()=>props.func(_id)}>Delete</Button>
           </Card.Body>
         </Card>
       </Col>

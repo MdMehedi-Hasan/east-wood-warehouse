@@ -8,7 +8,7 @@ import image3 from '../../../images/sql.png'
 import image4 from '../../../images/jwt.png'
 const Blogs = () => {
   return (
-    <div className="cstm-bg">
+    <div>
       <div className="header d-flex justify-content-center align-items-center fw-bold fs-2">Welcome to my blog</div>
       <Row xs={1} md={2} className="container mt-5 p-5 mx-auto g-4">
         <BlogsCard title={'# Difference between javascript and nodejs'} ans={"Javascript is a scripting language whereas node.js is a opensourcee javascript runtime environment to run javascript on server-side. Besides there are much differences between these two like:Javascript can only be run on the browsers but node.js can run javascript outside the browser. Javascript is used in frontend development, node.js is used in server-side development.Javascript is a programming language & node.js is a javascript runtime environment.Javascript is an updated version of ECMA script,Nodejs is written in C, C++ and Javascript."} image={image1}></BlogsCard>

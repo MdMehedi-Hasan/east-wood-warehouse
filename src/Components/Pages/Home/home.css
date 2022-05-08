@@ -8,5 +8,13 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../../../images/banner.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-color: black; */
+}
+.bg-green{
+    background-color: #4add4a;
+}
+.text-green{
+    color:#4add4a;
+}
+.border-green{
+    border-bottom:2px solid#4add4a;
 }

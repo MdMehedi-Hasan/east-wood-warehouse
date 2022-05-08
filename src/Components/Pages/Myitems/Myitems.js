@@ -33,7 +33,8 @@ const Myitems = () => {
     
   }
   return (
-    <div style={{minHeight:'100vh'}}>
+    <div style={{ minHeight: '100vh' }}>
+      <h1 className="text-green text-center mb-5">Products added by user</h1>
       <Row xs={1} md={2} className="g-4 container-fluid">
       {
               items?.map(perItem => <Percard key={perItem._id} item={perItem} func={handleItemDelete}></Percard>)

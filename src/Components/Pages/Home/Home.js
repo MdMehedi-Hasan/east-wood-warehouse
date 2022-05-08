@@ -20,11 +20,11 @@ const Home = () => {
       <div className="cstm-background"></div>
       <section className="suppliers py-5">
         <div className="mb-3 d-flex align-items-center justify-content-center">
-          <div className="border-bottom border-warning me-3 w-25"></div>
+          <div className=" border-green me-3 w-25"></div>
           <div>
             <h1 className="text-center">Business partners</h1>
           </div>
-          <div className="border-bottom border-warning ms-3 w-25"></div>
+          <div className="border-green ms-3 w-25"></div>
         </div>
 
         <div className="fs-1 d-flex justify-content-between bg-light p-5">
@@ -38,11 +38,11 @@ const Home = () => {
       </section>
       <section className="container-fluid mt-5 mb-5">
         <div className="mb-3 d-flex align-items-center justify-content-center">
-          <div className="border-bottom border-warning me-3 w-25"></div>
+          <div className="border-green me-3 w-25"></div>
           <div>
             <h1 className="text-center">Inventory products</h1>
           </div>
-          <div className="border-bottom border-warning ms-3 w-25"></div>
+          <div className="border-green ms-3 w-25"></div>
         </div>
         <Row xs={1} md={2} className="container mt-5 mx-auto g-4">
           {products
@@ -52,8 +52,8 @@ const Home = () => {
             .slice(0, 6)}
         </Row>
         <Link to="/manage">
-          <button className="btn-dark rounded-pill py-1">
-            Manage Inventory
+          <button className="bg-white text-dark fw-bold border-0 py-1 float-end">
+            Manage Inventory <Icon className="fs-3" icon="bi:box-arrow-in-right" />
           </button>
         </Link>
       </section>

@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -43,7 +44,7 @@ const Manage = () => {
                   }       
         </tbody>
       </Table>
-      <button className="btn-dark" onClick={addNewItem}>Add new item</button> 
+      <button className="bg-white text-dark fw-bold float-end border-0 px-4 py-3" onClick={addNewItem}>Add new item <Icon className="fs-4" icon="bi:box-arrow-in-right" /></button> 
     </div>
   );
 };
