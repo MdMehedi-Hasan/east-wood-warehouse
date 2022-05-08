@@ -8,6 +8,7 @@ const Myitems = () => {
   const [user] = useAuthState(auth);
   // const email = user?.email;
   const [items, setItems] = useState();
+  console.log(items)
   useEffect(() => {
     fetch("https://afternoon-shore-78894.herokuapp.com/products")
       .then((res) => res.json())
@@ -16,12 +17,26 @@ const Myitems = () => {
         //   uporer condition ta true howa sotteo condition er result gulo na dekhiye onno result dekhay keno?
       );
   }, []);
-//   console.log(items);
+  const handleItemDelete = (id) => {
+    const confirm = window.confirm("Do you want to delete this item? This action can't be undone")
+    if (confirm == true) {
+      fetch(`https://afternoon-shore-78894.herokuapp.com/products/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const restItems = items.filter(item => item._id !== id);
+        setItems(restItems);
+        console.log("Success:", data);
+      })
+    }
+    
+  }
   return (
-    <div>
+    <div style={{minHeight:'100vh'}}>
       <Row xs={1} md={2} className="g-4 container-fluid">
       {
-              items?.map(perItem => <Percard item={perItem}></Percard>)
+              items?.map(perItem => <Percard key={perItem._id} item={perItem} func={handleItemDelete}></Percard>)
           }
       </Row>
           

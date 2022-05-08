@@ -2,7 +2,8 @@ import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
 
 const Percard = (props) => {
-  const { image, name, price, description, quantity, supplier } =
+  console.log(props)
+  const {_id, image, name, price, description, quantity, supplier } =
     props.item;
   return (
     <div>
@@ -23,7 +24,7 @@ const Percard = (props) => {
             <Card.Text>
             <span className="fw-bold">Supplier:</span>  {supplier}
             </Card.Text>
-            <Button>Delete</Button>
+            <Button onClick={()=>props.func(_id)}>Delete</Button>
           </Card.Body>
         </Card>
       </Col>

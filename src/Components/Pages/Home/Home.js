@@ -15,12 +15,7 @@ const Home = () => {
   return (
     <div>
       <div className="cstm-background">
-        {/* <img width={"100%"} height={"500em"} src={banner} alt="" className="cstm-background w-50" />
-        <article className="w-50">
-    <p>Hello</p>
-        </article> */}
       </div>
-      
       <section className="container-fluid mt-5 mb-5">
         <h1 className="text-center">Inventory</h1>
         <Row xs={1} md={2} className="container mt-5 mx-auto g-4">
