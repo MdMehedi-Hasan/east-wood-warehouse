@@ -1,13 +1,13 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
-import demo from "../../../images/Background (2).png";
 
 const BlogsCard = (props) => {
+  console.log(props)
     return (
         <div>
             <Col>
       <Card>
-        <Card.Img variant="top" className="w-100" src={demo} />
+        <Card.Img style={{height:'200px'}} variant="top" className="w-100 mx-auto" src={props?.image} />
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
           <Card.Text>

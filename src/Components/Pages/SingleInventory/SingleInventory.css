@@ -6,3 +6,17 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
   }
+.cstm-card-background{
+  background-color: #93f50070;
+}
+.cstm-color{
+  background-image: url('../../../images/f-5.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.btn-green{
+  background-color:#64a700 ;
+}
+.btn-green:hover{
+  background-color: #599500;
+}

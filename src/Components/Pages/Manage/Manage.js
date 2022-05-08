@@ -7,16 +7,15 @@ const Manage = () => {
   const navigate = useNavigate()
   const [productDetails, setProductDetails] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://afternoon-shore-78894.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => setProductDetails(data));
   }, []);
   const addNewItem = () => {
     navigate('/add');
   }
-// console.log(productDetails)
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`https://afternoon-shore-78894.herokuapp.com/products/${id}`, {
       method: "DELETE",
     })
       .then((response) => response.json())
@@ -26,7 +25,6 @@ const Manage = () => {
         console.log("Success:", data);
       })
   }
-  // console.log(productDetails)
   return (
       <div style={{minHeight:'100vh'}}>
           <Table striped bordered hover responsive="md">

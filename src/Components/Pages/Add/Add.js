@@ -18,7 +18,7 @@ const Add = () => {
   };
   const handleAdd = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/product", {
+    fetch("https://afternoon-shore-78894.herokuapp.com/product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
