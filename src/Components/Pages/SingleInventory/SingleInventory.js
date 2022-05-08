@@ -60,7 +60,7 @@ const SingleInventory = () => {
               <h5 className="card-title">{singlePro?.name}</h5>
               <p className="card-text">Description: {singlePro?.description}</p>
               <p className="card-text">Price: ${singlePro?.price}</p>
-              <p className="card-text">Stock: {singlePro?.quantity>0 ? singlePro?.productQnt:"stock out"}</p>
+              <p className="card-text">Stock: {singlePro?.quantity>0 ? singlePro?.quantity:"stock out"}</p>
               <p className="card-text">
                 Supplier: {singlePro?.supplier ? singlePro.supplier : "N/A"}
               </p>
