@@ -6,8 +6,8 @@ import "./SingleInventory.css";
 const SingleInventory = () => {
   const [user, loading, error] = useAuthState(auth);
   const { id } = useParams();
-  const [restock, setRestock] = useState();
-  console.log(restock)
+  // const [restock, setRestock] = useState();
+  // console.log(restock)
   const [singlePro, setSinglePro] = useState();
   const url = `https://afternoon-shore-78894.herokuapp.com/products/${id}`;
   useEffect(() => {
@@ -56,7 +56,7 @@ const SingleInventory = () => {
               <h5 className="card-title">{singlePro?.name}</h5>
               <p className="card-text">Description: {singlePro?.description}</p>
               <p className="card-text">Price: ${singlePro?.price}</p>
-              <p className="card-text">Stock: {singlePro?.quantity}</p>
+              <p className="card-text">Stock: {singlePro?.quantity>0 ? singlePro.quantity:"stock out"}</p>
               <p className="card-text">
                 Supplier: {singlePro?.supplier ? singlePro.supplier : "N/A"}
               </p>
@@ -69,7 +69,7 @@ const SingleInventory = () => {
               {/* Button trigger modal */}
               <button
                 type="button"
-                className="btn btn-primary"
+                className="btn-green text-white border py-3 px-5 border-0"
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop"
               >
@@ -100,7 +100,7 @@ const SingleInventory = () => {
                       ></button>
                     </div>
                     <div className="modal-body">
-                      <input className="w-100" type="number" onBlur={(e)=>setRestock(e.target.value)} />
+                      <input className="w-100" type="number"/>
                     </div>
                     <div className="modal-footer">
                       <button

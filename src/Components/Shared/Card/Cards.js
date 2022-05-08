@@ -13,9 +13,18 @@ const Cards = ({ details }) => {
       <Card>
         <Card.Img variant="top" className="w-50" src={image} />
         <Card.Body>
-          <Card.Title>{name}</Card.Title>
+          <Card.Title>Product Name:{name}</Card.Title>
           <Card.Text>
-            {description} <br /> {price} <br /> {quantity} <br /> {supplier}
+            Description:{description}
+          </Card.Text>
+          <Card.Text>
+           Price: ${price} 
+          </Card.Text>
+          <Card.Text>
+            Stock: {quantity < 0 ? 'Stock out': quantity}          
+          </Card.Text>
+          <Card.Text>
+           {supplier}
           </Card.Text>
           <Card.Footer className="bg-white border-0">
            <button onClick={()=>productDetails(_id)}>Manage</button>
