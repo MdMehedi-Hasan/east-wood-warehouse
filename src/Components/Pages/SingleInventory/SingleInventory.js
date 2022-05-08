@@ -29,7 +29,7 @@ const SingleInventory = () => {
       .then((data) => {});
   };
   const handleRestock = () => {
-    fetch(`http://localhost:5000/product/${id}`, {
+    fetch(`https://afternoon-shore-78894.herokuapp.com/product/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
