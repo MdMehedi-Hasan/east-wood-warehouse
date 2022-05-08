@@ -9,6 +9,8 @@ const SingleInventory = () => {
   const [restock, setRestock] = useState();
   console.log(restock)
   const [singlePro, setSinglePro] = useState();
+
+
   const url = `https://afternoon-shore-78894.herokuapp.com/products/${id}`;
   useEffect(() => {
     fetch(url)
@@ -27,18 +29,17 @@ const SingleInventory = () => {
       .then((data) => {});
   };
   const handleRestock = () => {
-    
-    // console.log(newqnty)
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`http://localhost:5000/product/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(singlePro),
+      body: JSON.stringify(singlePro, singlePro.quantity=parseInt(singlePro.quantity)+parseInt(restock)),
     })
       .then((response) => response.json())
-      .then((data) => {const quantity = parseInt(singlePro.quantity);
-        const newqnty = parseInt(quantity + restock);});
+      .then((data) => {
+        // singlePro.quantity=singlePro.quantity+restock
+      });
   };
   return (
     <div
@@ -59,7 +60,7 @@ const SingleInventory = () => {
               <h5 className="card-title">{singlePro?.name}</h5>
               <p className="card-text">Description: {singlePro?.description}</p>
               <p className="card-text">Price: ${singlePro?.price}</p>
-              <p className="card-text">Stock: {singlePro?.quantity>0 ? singlePro.quantity:"stock out"}</p>
+              <p className="card-text">Stock: {singlePro?.quantity>0 ? singlePro?.productQnt:"stock out"}</p>
               <p className="card-text">
                 Supplier: {singlePro?.supplier ? singlePro.supplier : "N/A"}
               </p>

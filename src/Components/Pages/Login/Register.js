@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
   useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
   useSignInWithFacebook,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
@@ -20,6 +21,7 @@ const Register = () => {
     useSignInWithFacebook(auth);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+  const [sendEmailVerification] = useSendEmailVerification(auth);
 
   const handleGoogleLogin = () => {
     signInWithGoogle();
@@ -30,6 +32,7 @@ const Register = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(email, password);
+    sendEmailVerification()
     e.target.reset();
   };
   if (user||gUser||fbUser) {
@@ -38,7 +41,7 @@ const Register = () => {
   }
   return (
     <div style={{ minHeight: "100vh" }} className="d-flex">
-      <div className="w-50 border border-1 d-flex align-items-center justify-content-center bg-warning">
+      <div className="w-50 border border-1 d-flex align-items-center justify-content-center" style={{backgroundColor:'#93f50070'}}>
         <img className="w-50" src={logo} alt="" />
       </div>
       <div className="w-50 d-flex align-items-center justify-content-center ">
@@ -71,7 +74,7 @@ const Register = () => {
                 onBlur={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
-            <Button className="w-100" variant="primary" type="submit">
+            <Button className="w-100 bg-green text-white" type="submit">
               Sign up
             </Button>
           </Form>
@@ -82,13 +85,12 @@ const Register = () => {
             </Link>
           </p>
           <div className="text-center ">
-            <Icon onClick={handleGoogleLogin} icon="logos:google-icon" />
+            <Icon className="fs-1 me-4" onClick={handleGoogleLogin} icon="logos:google-icon" />
             <Icon
               onClick={handleFbLogin}
-              className="text-primary"
+              className="text-primary fs-1"
               icon="fa6-brands:facebook"
             />
-            <Icon icon="logos:github-icon" />
           </div>
         </div>
       </div>

@@ -42,7 +42,7 @@ const Login = () => {
   }
   return (
     <div style={{ minHeight: "100vh" }} className="d-flex">
-      <div className="w-50 border border-1 d-flex align-items-center justify-content-center bg-warning">
+      <div className="w-50 border border-1 d-flex align-items-center justify-content-center" style={{backgroundColor:'#93f50070'}}>
         <img className="w-50" src={logo} alt=""/>
       </div>
       <div className="w-50 d-flex align-items-center justify-content-center ">
@@ -71,7 +71,7 @@ const Login = () => {
               />
             </Form.Group>
             <p className="text-end">Forget password</p>
-            <Button className="w-100" variant="primary" type="submit">
+            <Button className="w-100 bg-green text-white " type="submit">
               Log in
             </Button>
           </Form>
@@ -82,13 +82,12 @@ const Login = () => {
             </Link>
           </p>
           <div className="text-center ">
-            <Icon onClick={handleGoogleLogin} icon="logos:google-icon" />
+            <Icon className="fs-1 me-4" onClick={handleGoogleLogin} icon="logos:google-icon" />
             <Icon
               onClick={handleFbLogin}
-              className="text-primary"
+              className="text-primary fs-1"
               icon="fa6-brands:facebook"
             />
-            <Icon icon="logos:github-icon" />
           </div>
         </div>
       </div>
