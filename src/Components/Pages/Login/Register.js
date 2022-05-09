@@ -40,11 +40,11 @@ const Register = () => {
     // optional (you can create a modal or a component to welcome the new user then navigate to homepage)
   }
   return (
-    <div style={{ minHeight: "100vh" }} className="d-flex">
-      <div className="w-50 border border-1 d-flex align-items-center justify-content-center" style={{backgroundColor:'#93f50070'}}>
-        <img className="w-50" src={logo} alt="" />
+    <div style={{ minHeight: "100vh" }} className="d-flex wrapper">
+      <div className=" border border-1 d-flex align-items-center justify-content-center responsive-image" style={{backgroundColor:'#93f50070'}}>
+        <img style={{maxWidth:'100%'}} src={logo} alt="" />
       </div>
-      <div className="w-50 d-flex align-items-center justify-content-center ">
+      <div className=" d-flex align-items-center justify-content-center form">
         <div className="w-75 border border-1 p-5">
           <h1 className="d-inline-block">
             Sign up:
