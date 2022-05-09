@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
-import { Row } from "react-bootstrap";
+import { Row, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Cards from "../../Shared/Card/Cards";
 import signature from "../../../images/signature.png";
@@ -45,8 +45,9 @@ const Home = () => {
           <div className="border-green ms-3 w-25"></div>
         </div>
         <Row xs={1} md={2} className="container mt-5 mx-auto g-4">
-          {products
-            .map((product) => (
+
+          {!products?<div  className="container-fluid text-center"> <Spinner style={{width:'7rem',height:'7rem'}} animation="border" variant="success" /></div>:  
+            products.map((product) => (
               <Cards key={product.price} details={product}></Cards>
             ))
             .slice(0, 6)}

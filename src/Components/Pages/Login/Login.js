@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
@@ -85,8 +85,8 @@ const Login = () => {
               />
             </Form.Group>
             <p className="text-danger">{error && error.message }</p>
-            {/* <p className="text-end" as={Link}>Forget password</p> */}
             <Link onClick={handlePassReset} className="float-end mb-3 text-decoration-none" to="/login">Forgot password?</Link>
+            {loading && <Spinner className="d-block mx-auto mb-2" animation="border" variant="success" />}
             <Button className="w-100 bg-green text-white " type="submit">
               Log in
             </Button>

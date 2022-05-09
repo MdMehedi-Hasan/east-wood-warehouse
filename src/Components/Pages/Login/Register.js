@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import {
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
@@ -74,7 +74,8 @@ const Register = () => {
                 onBlur={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
-            <p className="text-danger">{error && error.message }</p>
+            <p className="text-danger">{error && error.message}</p>
+            {loading && <Spinner className="d-block mx-auto mb-2" animation="border" variant="success" />}
             <Button className="w-100 bg-green text-white" type="submit">
               Sign up
             </Button>
