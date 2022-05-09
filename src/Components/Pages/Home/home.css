@@ -23,10 +23,19 @@
         width:75%;
         margin-bottom: 50px;
     }
+    .width-95{
+        width:95%;
+    }
+    .partnet-sm{
+        margin-right: 10px;
+    }
 }
 @media screen and (min-width:769px) {
     .sm-width-75{
         width:50%;
         margin-bottom: 0px;
+    }
+    .width-95{
+        width: 50%;
     }
 }

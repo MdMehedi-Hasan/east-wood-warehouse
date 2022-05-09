@@ -9,7 +9,13 @@ import image4 from '../../../images/jwt.png'
 const Blogs = () => {
   return (
     <div>
-      <div className="header d-flex justify-content-center align-items-center fw-bold fs-2">Welcome to my blog</div>
+      <div className="header">
+        <div className="d-flex flex-column justify-content-center ms-5 fw-bold">
+        <h3>Welcome! Here you will find the answers <br /> of the following question</h3>
+        <button className="btn-green border-0 text-white py-2 btn-width">Learn More</button>
+        </div>
+        
+      </div>
       <Row xs={1} md={2} className="container mt-5 p-5 mx-auto g-4">
         <BlogsCard title={'# Difference between javascript and nodejs'} ans={"Javascript is a scripting language whereas node.js is a opensourcee javascript runtime environment to run javascript on server-side. Besides there are much differences between these two like:Javascript can only be run on the browsers but node.js can run javascript outside the browser. Javascript is used in frontend development, node.js is used in server-side development.Javascript is a programming language & node.js is a javascript runtime environment.Javascript is an updated version of ECMA script,Nodejs is written in C, C++ and Javascript."} image={image1}></BlogsCard>
         <BlogsCard title={'# When to use nodejs and when to use mongodb'} ans={"There are two types of execution in programming.Asynchronous programming and synchronous programming. Node JS by default follows the Asynchronous pattern. Means, it does not wait for a code to be completed. Immediately, NodeJS started another job. That’s why we use nodeJS.MongoDB is the Document Oriented Database. It stores a lot of data in JSON format & it's performance is much faster. It is created to work with Large Scale Data. It can work on multiple servers. MongoDB can handle a large number of access requests easily."} image={image2}></BlogsCard>

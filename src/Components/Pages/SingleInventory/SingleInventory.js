@@ -4,19 +4,22 @@ import { useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
 import "./SingleInventory.css";
 const SingleInventory = () => {
-  const [user, loading, error] = useAuthState(auth);
+  // const [user, loading, error] = useAuthState(auth);
   const { id } = useParams();
-  const [restock, setRestock] = useState();
-  console.log(restock)
-  const [singlePro, setSinglePro] = useState();
-
+  const [restock, setRestock] = useState(0);
+  const [singlePro, setSinglePro] = useState([]);
+  const [update, setUpdate] = useState()
+  const { quantity } = singlePro;
+  const tQuantity = parseInt(restock) + parseInt(quantity);
+  const newQuantity = {tQuantity}
+  console.log(quantity);
 
   const url = `https://afternoon-shore-78894.herokuapp.com/products/${id}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setSinglePro(data));
-  }, [singlePro]);
+  }, [update]);
   const handleDelivered = () => {
     fetch(url, {
       method: "PUT",
@@ -26,19 +29,21 @@ const SingleInventory = () => {
       body: JSON.stringify(singlePro),
     })
       .then((response) => response.json())
-      .then((data) => {});
+      .then((data) => {
+        setUpdate(!update)
+      });
   };
   const handleRestock = () => {
-    fetch(`https://afternoon-shore-78894.herokuapp.com/product/${id}`, {
+    fetch(`http://localhost:5000/product/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(singlePro, singlePro.quantity=parseInt(singlePro.quantity)+parseInt(restock)),
+      body: JSON.stringify(newQuantity),
     })
       .then((response) => response.json())
       .then((data) => {
-        // singlePro.quantity=singlePro.quantity+restock
+        setUpdate(!update)
       });
   };
   return (
@@ -60,7 +65,10 @@ const SingleInventory = () => {
               <h5 className="card-title">{singlePro?.name}</h5>
               <p className="card-text">Description: {singlePro?.description}</p>
               <p className="card-text">Price: ${singlePro?.price}</p>
-              <p className="card-text">Stock: {singlePro?.quantity>0 ? singlePro?.quantity:"stock out"}</p>
+              <p className="card-text">
+                Stock:{" "}
+                {singlePro?.quantity > 0 ? singlePro?.quantity : "stock out"}
+              </p>
               <p className="card-text">
                 Supplier: {singlePro?.supplier ? singlePro.supplier : "N/A"}
               </p>
@@ -70,59 +78,14 @@ const SingleInventory = () => {
               >
                 Delivered
               </button>
-              {/* Button trigger modal */}
               <button
                 type="button"
                 className="btn-green text-white border py-3 px-5 border-0"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
+                onClick={handleRestock}
               >
                 Restock
               </button>
-
-              {/* <!-- Modal --> */}
-              <div
-                className="modal fade"
-                id="staticBackdrop"
-                data-bs-backdrop="static"
-                data-bs-keyboard="false"
-                tabindex="-1"
-                aria-labelledby="staticBackdropLabel"
-                aria-hidden="true"
-              >
-                <div className="modal-dialog modal-dialog-centered">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <h5 className="modal-title" id="staticBackdropLabel">
-                        Eastwood
-                      </h5>
-                      <button
-                        type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div className="modal-body">
-                      <input onChange={(e)=>setRestock(e.target.value)} className="w-100" type="number"/>
-                    </div>
-                    <div className="modal-footer">
-                      <button
-                        type="button"
-                        className="btn btn-danger"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button type="button" className="btn btn-green" data-bs-dismiss="modal" onClick={handleRestock}>
-                       Restock
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* ============================= */}
+              <input type="text" onChange={(e)=>setRestock(e.target.value)} />
             </div>
           </div>
         </div>

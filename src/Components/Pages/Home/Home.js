@@ -28,12 +28,12 @@ const Home = () => {
         </div>
 
         <div className="fs-1 d-flex justify-content-between bg-light p-5">
-          <Icon icon="logos:behance" />
-          <Icon icon="logos:ansible" />
-          <Icon icon="logos:chargebee" />
-          <Icon icon="logos:bash" />
-          <Icon icon="logos:delighted" />
-          <Icon icon="logos:vercel" />
+          <Icon className="partnet-sm" icon="logos:behance" />
+          <Icon className="partnet-sm" icon="logos:ansible" />
+          <Icon className="partnet-sm" icon="logos:chargebee" />
+          <Icon className="partnet-sm" icon="logos:bash" />
+          <Icon className="partnet-sm" icon="logos:delighted" />
+          <Icon className="partnet-sm" icon="logos:vercel" />
         </div>
       </section>
       <section className="container-fluid mt-5 mb-5">
@@ -58,7 +58,7 @@ const Home = () => {
         </Link>
       </section>
       <section className="values d-flex justify-content-center p-5 text-white ">
-        <div className="w-50 text-center">
+        <div className="width-95 text-center">
           <h1>OUR CORE VALUES</h1>
           <small>Written by Eastwood C.E.O</small>
           <p className="mt-5">
