@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Useful links
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live website link: [Eastwood](https://eastwood-e0b30.web.app/)\
+Server side code link : [Nodejs server](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-MdMehedi-Hasan)\
+Client side code link : [Client side](https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-MdMehedi-Hasan)\
+Stack overflow question link : [Stack overflow](https://stackoverflow.com/questions/72157692/react-js-private-route-related-issue-when-trying-to-signup-or-login)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Eastwood app introduction
+Eastwood is a furniture based warehouse app where we are focusing on admin panel alike interactivity. In the home page we have added required section & three extra sections partners,business values & about us (as per our resource we have found people are using these section in warehouse websites. So we also added them). If you click manage button from a single inventory it will show details about that product and the route will allow you to reduce or increse stock quantity. Also you will find a manage inventory button bottom of the inventory section which will navigate you to manage inventory page. In this page you can see product image,name,stock,price $ a delete button. Clicking on that button will completely delete the product from database also from UI.Below you will find another button which is called add new item will navigate you to the add new page where you can add any product to the database and the product will show in both manage inventory and myitems. We do have to more nav for blogs and log in. In blogs section we have answered the question which were asked for assignment.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Technologies used for this project (For client side)
+ * React
+ * Bootstrap
+ * React Bootstrap
+ * Firebase (for authentication & deploying)
+ * React firebase hooks (For authentication)
+ * React icons
+ 
+ ### Technologies used for this project (For Server side)
+ * Node.js
+ * express.js
+ * cors
+ * dotenv
+ * Mongodb
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Conclusion
+There's always some skope for improvement. Please let us know if you find any dispute. Your kind feedback would highly be appreciated.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
