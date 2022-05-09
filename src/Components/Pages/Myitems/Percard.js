@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
 
 const Percard = (props) => {
-  console.log(props)
   const {_id, image, name, price, description, quantity, supplier } =
     props.item;
   return (

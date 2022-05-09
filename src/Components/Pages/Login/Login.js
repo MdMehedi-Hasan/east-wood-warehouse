@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithFacebook,
   useSignInWithGoogle,
@@ -9,6 +10,8 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import logo from "../../../images/login.svg";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,6 +24,9 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending, mailError] = useSendPasswordResetEmail(
+      auth
+    );
 
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [signInWithFacebook, fbUser, fbLoading, fbError] =
@@ -37,11 +43,19 @@ const Login = () => {
   const handleFbLogin = () => {
     signInWithFacebook();
   };
+  const handlePassReset = async () => {
+    toast('Email for reset password has sent');
+    await sendPasswordResetEmail(email);
+    
+    }
   if (user || fbUser|| gUser) {
     navigate(from, { replace: true });
   }
+ 
   return (
+    <div><ToastContainer />
     <div style={{ minHeight: "100vh" }} className="d-flex">
+      
       <div className="w-50 border border-1 d-flex align-items-center justify-content-center" style={{backgroundColor:'#93f50070'}}>
         <img className="w-50" src={logo} alt=""/>
       </div>
@@ -70,7 +84,9 @@ const Login = () => {
                 onBlur={(e)=>setPassword(e.target.value)}
               />
             </Form.Group>
-            <p className="text-end">Forget password</p>
+            <p className="text-danger">{error && error.message }</p>
+            {/* <p className="text-end" as={Link}>Forget password</p> */}
+            <Link onClick={handlePassReset} className="float-end mb-3 text-decoration-none" to="/login">Forgot password?</Link>
             <Button className="w-100 bg-green text-white " type="submit">
               Log in
             </Button>
@@ -91,7 +107,8 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      </div>
   );
 };
 

@@ -74,6 +74,7 @@ const Register = () => {
                 onBlur={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
+            <p className="text-danger">{error && error.message }</p>
             <Button className="w-100 bg-green text-white" type="submit">
               Sign up
             </Button>

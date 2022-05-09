@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 
 const BlogsCard = (props) => {
-  console.log(props)
     return (
         <div>
             <Col>

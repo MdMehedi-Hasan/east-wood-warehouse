@@ -6,9 +6,7 @@ import Percard from "./Percard";
 
 const Myitems = () => {
   const [user] = useAuthState(auth);
-  // const email = user?.email;
   const [items, setItems] = useState();
-  console.log(items)
   useEffect(() => {
     fetch("https://afternoon-shore-78894.herokuapp.com/products")
       .then((res) => res.json())
@@ -27,7 +25,6 @@ const Myitems = () => {
       .then((data) => {
         const restItems = items.filter(item => item._id !== id);
         setItems(restItems);
-        console.log("Success:", data);
       })
     }
     
