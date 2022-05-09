@@ -7,8 +7,11 @@ import signature from "../../../images/signature.png";
 import "./home.css";
 import Accordion from "./Accordion";
 import Form from "./Form";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 
 const Home = () => {
+  const [user, loading, error] = useAuthState(auth);
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("https://afternoon-shore-78894.herokuapp.com/products")
@@ -52,11 +55,12 @@ const Home = () => {
             ))
             .slice(0, 6)}
         </Row>
-        <Link to="/manage">
-          <button className="bg-white text-dark fw-bold border-0 py-1 float-end">
-            Manage Inventory <Icon className="fs-3" icon="bi:box-arrow-in-right" />
-          </button>
-        </Link>
+        { user &&
+          <Link to="/manage">
+            <button className="bg-white text-dark fw-bold border-0 py-1 float-end">
+              Manage Inventory <Icon className="fs-3" icon="bi:box-arrow-in-right" />
+            </button>
+          </Link>}
       </section>
       <section className="values d-flex justify-content-center p-5 text-white ">
         <div className="width-95 text-center">
