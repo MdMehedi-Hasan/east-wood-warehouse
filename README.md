@@ -27,6 +27,12 @@ Eastwood is a furniture based warehouse app where we are focusing on admin panel
  * dotenv
  * Mongodb
 
+### Differentiators
+ * Partners section
+ * About us section
+ * Extra form
+ * Mega menu
+ * Extra one social login
 
 ### Conclusion
 There's always some skope for improvement. Please let us know if you find any dispute. Your kind feedback would highly be appreciated.
