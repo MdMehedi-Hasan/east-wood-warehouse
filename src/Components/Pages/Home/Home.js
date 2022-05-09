@@ -76,8 +76,8 @@ const Home = () => {
       </section>
 
       <section className="about-us py-5">
-        <div className="d-flex justify-content-around align-items-center">
-          <div className="w-50">
+        <div className="d-flex flex-column flex-lg-row justify-content-around align-items-center">
+          <div className="sm-width-75">
             <h1 className="text-center">Why us...</h1>
             <Accordion></Accordion>
           </div>

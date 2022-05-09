@@ -18,3 +18,15 @@
 .border-green{
     border-bottom:2px solid#4add4a;
 }
+@media screen and (max-width:768px) {
+    .sm-width-75{
+        width:75%;
+        margin-bottom: 50px;
+    }
+}
+@media screen and (min-width:769px) {
+    .sm-width-75{
+        width:50%;
+        margin-bottom: 0px;
+    }
+}
